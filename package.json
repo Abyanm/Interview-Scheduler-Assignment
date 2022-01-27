@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.25.0",
     "classnames": "^2.2.6",
     "fsevents": "^1.2.9",
     "normalize.css": "^8.0.1",
@@ -15,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public --ci",
+    "storybook": "start-storybook -p 9000 -s public --ci",
     "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
@@ -47,5 +48,6 @@
       "<rootDir>/node_modules/",
       "<rootDir>/.git/"
     ]
-  }
+  },
+  "proxy": "http://localhost:8001"
 }
