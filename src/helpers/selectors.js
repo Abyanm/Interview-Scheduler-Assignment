@@ -7,26 +7,17 @@ export function getAppointmentsForDay(state, day) {
   return filteredAppointments;
 }
 
+//function that fetches all interviewers assigned for the selected day
 export function getInterviewersForDay(state, day) {
-  if (state.days.length === 0) return [];
-  if (!state.days.map(item => item.name).includes(day)) return [];
-  const filteredDays = state.days.filter(element => element.name === day)[0]
-    .appointments;
-  const filteredAppointments = filteredDays.map(id => state.appointments[id]);
+  const foundDay = state.days.find(stateDay => day === stateDay.name);
+  if (!foundDay || foundDay.interviewers.length === 0) {
+    return [];
+  }
 
-  const filteredInterviewersID = filteredAppointments
-    .map(app => {
-      if (app.interview) {
-        return app.interview.interviewer;
-      }
-    })
-    .filter(id => id != undefined);
-  const filteredInterviewers = filteredInterviewersID.map(id => {
-    if (state.interviewers[id]) return state.interviewers[id];
+  const foundInterviewers = foundDay.interviewers.map(interviewer => {
+    return state.interviewers[interviewer];
   });
-
-  console.log(filteredInterviewers);
-  return filteredInterviewers;
+  return foundInterviewers;
 }
 
 export function getInterview(state, interview) {
