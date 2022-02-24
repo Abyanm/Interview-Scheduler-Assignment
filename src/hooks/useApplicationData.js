@@ -39,12 +39,9 @@ export default function useApplicationData() {
         };
         const newSpots = state.days.map(day => {
             if (day.name === state.day) {
-                console.log('here', day, state.day)
                 let bookSpots = 0;
                 for(let appointment in appointments){
                     if(day.appointments.includes(appointments[appointment].id) && appointments[appointment].interview !== null) {
-                        console.log('hello', bookSpots)
-                        console.log('hello', appointments)
                         bookSpots++;
                     }
                 }
