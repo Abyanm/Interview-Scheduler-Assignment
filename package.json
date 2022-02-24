@@ -2,13 +2,12 @@
   "name": "scheduler",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8001",
   "dependencies": {
     "axios": "^0.25.0",
     "classnames": "^2.2.6",
-    "fsevents": "^1.2.9",
     "normalize.css": "^8.0.1",
-    "prop-types": "^15.8.1",
-    "react": "^16.9.0",
+    "react": "^16.14.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.0.0"
   },
@@ -16,10 +15,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "cypress": "cypress open -P .",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9000 -s public --ci",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "start-storybook -p 9009 -s public --ci",
+    "build-storybook": "build-storybook -s public",
+    "cypress": "cypress open -P ."
   },
   "browserslist": {
     "production": [
@@ -44,13 +43,14 @@
     "@testing-library/react": "^8.0.7",
     "@testing-library/react-hooks": "^7.0.2",
     "babel-loader": "^8.0.5",
-    "node-sass": "^4.14.0"
+    "node-sass": "^4.14.0",
+    "prop-types": "^15.8.1",
+    "react-test-renderer": "^16.14.0"
   },
   "jest": {
     "watchPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/.git/"
     ]
-  },
-  "proxy": "http://localhost:8001"
+  }
 }

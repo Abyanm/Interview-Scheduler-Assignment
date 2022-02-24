@@ -39,7 +39,17 @@ export default function useApplicationData() {
         };
         const newSpots = state.days.map(day => {
             if (day.name === state.day) {
-                day.spots--;
+                console.log('here', day, state.day)
+                let bookSpots = 0;
+                for(let appointment in appointments){
+                    if(day.appointments.includes(appointments[appointment].id) && appointments[appointment].interview !== null) {
+                        console.log('hello', bookSpots)
+                        console.log('hello', appointments)
+                        bookSpots++;
+                    }
+                }
+
+                day.spots = 5-bookSpots
             }
             return day;
         });
@@ -63,7 +73,7 @@ export default function useApplicationData() {
             ...state.appointments,
             [id]: appointment
         };
-
+        console.log(appointments)
         return axios.put(`api/appointments/${id}`, appointment).then(() => {
             setState({
                 ...state,
@@ -71,6 +81,7 @@ export default function useApplicationData() {
             });
         });
     };
+    
 
     const cancelInterview = id => {
         const appointment = {
