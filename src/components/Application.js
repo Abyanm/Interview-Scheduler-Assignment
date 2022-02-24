@@ -22,9 +22,6 @@ export default function Application(props) {
 
         return (
             <Appointment
-                //when new props are called everything is refreshed when you have a unique key
-                //if not only the prop data will get updated
-                //can cause errors when using mode and transitions
                 key={a.id}
                 id={a.id}
                 time={a.time}
